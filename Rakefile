@@ -12,7 +12,7 @@ task :run do
 end
 
 desc 'defalut => run'
-task default: [:test, :run]
+task default: %i[test run]
 
 require 'rspec/core'
 require 'rspec/core/rake_task'

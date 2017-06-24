@@ -1,8 +1,9 @@
-require_relative 'download_link/xunlei'
-
 class DownloadLink
   def resolve(download_link)
-    choose_strategy(download_link)
+    protocal, = download_link.split('://')
+
+    choose_strategy(protocal.downcase)
+
     @strategy.resolve(download_link)
   rescue
     puts '[-] Resolve Error !'
@@ -10,9 +11,12 @@ class DownloadLink
 
   private
 
-  def choose_strategy(download_link)
-    protocal, = download_link.split '://'
+  def choose_strategy(protocal)
+    $LOAD_PATH << File.expand_path('../download_link', __FILE__)
+    require protocal
 
-    @strategy = Xunlei.new if protocal.casecmp('thunder').zero?
+    @strategy = eval("#{protocal.capitalize}.new")
+  rescue
+    raise "[-] Can not resolve Protocal: #{protocal} !"
   end
 end

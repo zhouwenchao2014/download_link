@@ -1,11 +1,9 @@
 require_relative '../spec_helper'
-require 'download_link'
 
 describe DownloadLink do
   it 'set strategy' do
-    dl = 'thunder://QUFmdHA6Ly95OnlAZHlnb2QxOC5jb206MTUxMzIvWyVFNyU5NCVCNSVFNSVCRCVCMSVFNSVBNCVBOSVFNSVBMCU4Mnd3dy5keTIwMTguY29tXSVFOCU5MyU5RCVFNyVCMiVCRSVFNyU4MSVCNSVFRiVCQyU5QSVFNSVBRiVCQiVFNiU4OSVCRSVFNyVBNSU5RSVFNyVBNyU5OCVFNiU5RCU5MUJEJUU0JUI4JUFEJUU1JUFEJTk3LnJtdmJaWg=='
-    strategy = DownloadLink.new.send(:choose_strategy, dl)
-    expect(strategy).to be_a Xunlei
+    strategy = DownloadLink.new.send(:choose_strategy, 'Thunder'.downcase)
+    expect(strategy).to be_a Thunder
   end
 
   it 'resolve download link' do
