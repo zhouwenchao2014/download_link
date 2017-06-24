@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+#encoding: utf-8
+
+require 'download_link'
+
+print "输入要解析的链接地址："
+url = gets.chomp
+
+dl = DownloadLink.new
+puts dl.resolve url
