@@ -12,7 +12,7 @@ task :run do
 end
 
 desc 'defalut => run'
-task default: ['run']
+task default: [:test, :run]
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
@@ -21,4 +21,4 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
 end
 
 desc 'test'
-task test: 'spec'
+task test: :spec
