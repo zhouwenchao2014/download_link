@@ -11,9 +11,6 @@ task :run do
   system 'bin/download_link'
 end
 
-desc 'defalut => run'
-task default: %i[test run]
-
 require 'rspec/core'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
@@ -22,3 +19,6 @@ end
 
 desc 'test'
 task test: :spec
+
+desc 'defalut => test'
+task default: :test
