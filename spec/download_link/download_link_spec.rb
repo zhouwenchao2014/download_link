@@ -18,8 +18,8 @@ describe DownloadLink do
       expect { DownloadLink.new.send(:choose_strategy, nil) }.to raise_error RuntimeError
     end
     
-    it 'resolve raise RuntimeError' do
-      expect { DownloadLink.new.resolve('://') }.to raise_error RuntimeError
+    it 'resolve method puts error message' do
+      expect { DownloadLink.new.resolve('://') }.to eq '[-] Resolve Error !'
     end
   end
 end
