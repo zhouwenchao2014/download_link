@@ -15,7 +15,7 @@ describe DownloadLink do
   
   context 'when protocal is nil' do
     it 'raise RuntimeError' do
-      expect { DownloadLink.new.send(:choose_strategy, nil) }.to raise RuntimeError
+      expect { DownloadLink.new.send(:choose_strategy, nil) }.to raise_error RuntimeError
     end
   end
 end
