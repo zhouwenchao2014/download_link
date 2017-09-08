@@ -19,7 +19,7 @@ describe DownloadLink do
     end
     
     it 'resolve method puts error message' do
-      expect { DownloadLink.new.resolve('://') }.to eq '[-] Resolve Error !'
+      expect(DownloadLink.new.resolve('://')).to eq '[-] Resolve Error !'
     end
   end
 end
