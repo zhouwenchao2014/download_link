@@ -12,4 +12,10 @@ describe DownloadLink do
 
     expect(DownloadLink.new.resolve(dl)).to eq origin_download_link
   end
+  
+  context 'when protocal is nil' do
+    it 'raise RuntimeError' do
+      expect { DownloadLink.new.send(:choose_strategy, nil) }.to raise RuntimeError
+    end
+  end
 end
