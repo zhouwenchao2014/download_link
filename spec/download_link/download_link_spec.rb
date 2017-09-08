@@ -14,8 +14,12 @@ describe DownloadLink do
   end
   
   context 'when protocal is nil' do
-    it 'raise RuntimeError' do
+    it 'choose strategy raise RuntimeError' do
       expect { DownloadLink.new.send(:choose_strategy, nil) }.to raise_error RuntimeError
+    end
+    
+    it 'resolve raise RuntimeError' do
+      expect { DownloadLink.new.resolve('://') }.to raise_error RuntimeError
     end
   end
 end
